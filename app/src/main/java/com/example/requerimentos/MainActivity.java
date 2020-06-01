@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         String dep = ((EditText)findViewById(R.id.etDep)).getText().toString();
         String desc = ((EditText)findViewById(R.id.etDesc)).getText().toString();
 
-        if (((nome == " ") || (mat == " ") || (dep == " ") || (desc == ""))){
+        if (((nome == " ") || (mat == " ") || (dep == " ") || (desc == " "))){
             popup();
         }else{
             Map<String, Object> requerimento = new HashMap<>();
@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
             db.collection("requerimento").add(requerimento);
 
             toast();
+
             nome1.setText("");
             mat1.setText("");
             dep1.setText("");
@@ -64,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog alerta;
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("ATENÇÃO!!!");
-        builder.setMessage("Campos Nome e Quantidade não pode ser vazio ou 0!!!");
+        builder.setMessage("Campos não pode ser vazio!!!");
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
